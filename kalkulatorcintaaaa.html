@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Cinta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ff4d6d;
+            font-size: 2em;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 10px;
+            width: 90%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #ff4d6d;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff758c;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff4d6d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Cinta ❤️</h1>
+        <input type="text" id="nama1" placeholder="Nama pertama" />
+        <input type="text" id="nama2" placeholder="Nama kedua" />
+        <button onclick="hitungCinta()">Hitung Cinta</button>
+        <div class="result" id="hasil"></div>
+    </div>
+    <script>
+        function hitungCinta() {
+            const nama1 = document.getElementById("nama1").value.trim();
+            const nama2 = document.getElementById("nama2").value.trim();
+            const hasil = document.getElementById("hasil");
+            
+            if (!nama1 || !nama2) {
+                hasil.textContent = "Masukkan kedua nama!";
+                return;
+            }
+            
+            let total = 0;
+            const namaGabung = (nama1 + nama2).toLowerCase();
+            
+            for (let i = 0; i < namaGabung.length; i++) {
+                total += namaGabung.charCodeAt(i);
+            }
+            
+            const persentaseCinta = (total % 101); // Hasil antara 0 - 100
+            hasil.textContent = `Kecocokan: ${persentaseCinta}% ❤️`;
+        }
+    </script>
+</body>
+</html>
